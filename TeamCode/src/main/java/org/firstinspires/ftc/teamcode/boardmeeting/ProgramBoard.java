@@ -1,0 +1,37 @@
+package org.firstinspires.ftc.teamcode.boardmeeting;
+
+// FTC imports
+import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
+import com.qualcomm.robotcore.hardware.AnalogInput;
+import com.qualcomm.robotcore.hardware.ColorSensor;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DigitalChannel;
+import com.qualcomm.robotcore.hardware.DistanceSensor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.IMU;
+import com.qualcomm.robotcore.hardware.Servo;
+
+/**
+* A ProgramBoard. It maps strings to connected hardware for use in multiple different OpModes.
+* It's honestly not the approach I would have gone with, but it (hopefully) works.
+ */
+public class ProgramBoard {
+    public DriveBase dbase;
+    public DeviceType<DigitalChannel> sensors;
+    public DeviceType<DcMotor> motors;
+    public DeviceType<Servo> servos;
+    public DeviceType<AnalogInput> analogSensors;
+    public DeviceType<ColorSensor> colorSensors;
+    public DeviceType<DistanceSensor> distanceSensors;
+
+    public IMU imu;
+
+
+    public void init(HardwareMap map){
+        imu = map.get(IMU.class, "imu");
+    }
+    public void initializeIMU(RevHubOrientationOnRobot orientation){
+        imu.initialize(new IMU.Parameters(orientation));
+    }
+
+}
