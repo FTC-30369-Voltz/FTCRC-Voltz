@@ -11,12 +11,17 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.IMU;
 import com.qualcomm.robotcore.hardware.Servo;
 
+import org.firstinspires.ftc.teamcode.Config;
+
 /**
 * A ProgramBoard. It maps strings to connected hardware for use in multiple different OpModes.
 * It's honestly not the approach I would have gone with, but it (hopefully) works.
  */
 public class ProgramBoard {
+    public Config cfg;
+
     public DriveBase dbase;
+
     public DeviceType<DigitalChannel> sensors;
     public DeviceType<DcMotor> motors;
     public DeviceType<Servo> servos;

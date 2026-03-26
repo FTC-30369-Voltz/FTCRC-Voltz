@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp
-public class BasicOpMode extends OpMode {
+public class TeleOpMode extends OpMode {
 
     Octavia octavia = new Octavia();
 
@@ -16,5 +16,8 @@ public class BasicOpMode extends OpMode {
     @Override
     public void loop(){
         telemetry.addData("Hello", "World");
+        telemetry.addData("Left stick X", gamepad1.left_stick_x);
+        telemetry.addData("Left stick Y", gamepad1.left_stick_y);
+
     }
 }

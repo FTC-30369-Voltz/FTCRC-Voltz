@@ -1,9 +1,9 @@
-package org.firstinspires.ftc.teamcode.mechanisms;
+package org.firstinspires.ftc.teamcode.autoCommander;
 
 import org.firstinspires.ftc.teamcode.boardmeeting.ProgramBoard;
 
 public class ShootArtifactCommand extends BotCommand {
-    public void run(ProgramBoard board) {
-        super.run(board);
+    public void execute(ProgramBoard board) {
+        super.execute(board);
     }
 }

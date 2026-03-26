@@ -6,15 +6,21 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.teamcode.Config;
 
 public class DriveBase {
-    public DcMotor frontLeft;
-    public DcMotor frontRight;
-    public DcMotor backLeft;
-    public DcMotor backRight;
+    public DcMotor leftMotor;
+    public DcMotor rightMotor;
 
     public DriveBase(Config cfg, HardwareMap map){
-        frontLeft = map.get(DcMotor.class, cfg.DB_FRONT_LEFT);
-        frontRight = map.get(DcMotor.class, cfg.DB_FRONT_RIGHT);
-        backLeft = map.get(DcMotor.class, cfg.DB_BACK_LEFT);
-        backRight = map.get(DcMotor.class, cfg.DB_BACK_RIGHT);
+        leftMotor = map.get(DcMotor.class, cfg.DB_TANK_LEFT);
+        rightMotor = map.get(DcMotor.class, cfg.DB_TANK_RIGHT);
+    }
+
+    public void setMode(DcMotor.RunMode leftMode, DcMotor.RunMode rightMode){
+        leftMotor.setMode(leftMode);
+        rightMotor.setMode(rightMode);
+    }
+
+    public void setPower(double leftPower, double rightPower){
+        leftMotor.setPower(leftPower);
+        rightMotor.setPower(rightPower);
     }
 }

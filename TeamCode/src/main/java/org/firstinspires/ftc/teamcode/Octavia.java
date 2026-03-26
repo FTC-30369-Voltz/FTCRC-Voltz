@@ -12,9 +12,9 @@ import org.firstinspires.ftc.teamcode.boardmeeting.ProgramBoard;
  */
 public class Octavia extends ProgramBoard
 {
-    public Config cfg;
     public DcMotor ito_transfer;
-    public DcMotor ito_outtake;
+    public DcMotor ito_outtake_L;
+    public DcMotor ito_outtake_R;
 
     public void init(HardwareMap map){
         super.init(map); // Run this first to avoid null-pointer exceptions.
@@ -22,8 +22,8 @@ public class Octavia extends ProgramBoard
         dbase = new DriveBase(cfg, map);
 
         ito_transfer = motors.addItem(map, cfg.ITO_TRANSFER);
-        ito_outtake = motors.addItem(map, cfg.ITO_OUTTAKE);
-
+        ito_outtake_L = motors.addItem(map, cfg.ITO_OUTTAKE_L);
+        ito_outtake_R = motors.addItem(map, cfg.ITO_OUTTAKE_R);
         RevHubOrientationOnRobot orientation = new RevHubOrientationOnRobot(
                 RevHubOrientationOnRobot.LogoFacingDirection.UP,
                 RevHubOrientationOnRobot.UsbFacingDirection.FORWARD
