@@ -19,7 +19,7 @@ public class Octavia extends ProgramBoard
 
         cfg = new Config();
 
-        //dbase = new DriveBase(this, cfg, map);
+        dbase = new DriveBase(this, cfg, map);
         ito = new ITOSystem(this, cfg, map);
 
         RevHubOrientationOnRobot orientation = new RevHubOrientationOnRobot(

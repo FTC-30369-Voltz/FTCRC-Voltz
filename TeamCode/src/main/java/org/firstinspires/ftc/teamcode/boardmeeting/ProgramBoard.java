@@ -20,7 +20,7 @@ import org.firstinspires.ftc.teamcode.Config;
 public class ProgramBoard {
     public Config cfg;
 
-    //public DriveBase dbase;
+    public DriveBase dbase;
 
     public DeviceType<DigitalChannel> sensors;
     public DeviceType<DcMotor> motors;
