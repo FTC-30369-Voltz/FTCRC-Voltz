@@ -20,7 +20,7 @@ import org.firstinspires.ftc.teamcode.Config;
 public class ProgramBoard {
     public Config cfg;
 
-    public DriveBase dbase;
+    //public DriveBase dbase;
 
     public DeviceType<DigitalChannel> sensors;
     public DeviceType<DcMotor> motors;
@@ -31,12 +31,17 @@ public class ProgramBoard {
 
     public IMU imu;
 
-
     public void init(HardwareMap map){
+        sensors = new DeviceType<DigitalChannel>(DigitalChannel.class);
+        motors = new DeviceType<DcMotor>(DcMotor.class);
+        servos = new DeviceType<Servo>(Servo.class);
+        analogSensors = new DeviceType<AnalogInput>(AnalogInput.class);
+        colorSensors = new DeviceType<ColorSensor>(ColorSensor.class);
+        distanceSensors = new DeviceType<DistanceSensor>(DistanceSensor.class);
+
         imu = map.get(IMU.class, "imu");
     }
     public void initializeIMU(RevHubOrientationOnRobot orientation){
         imu.initialize(new IMU.Parameters(orientation));
     }
-
 }
