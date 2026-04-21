@@ -29,6 +29,7 @@ public class TeleOpMode extends OpMode {
         */
         float totalPower = (float) Math.sqrt(Math.abs(leftMotor+rightMotor));
         if (totalPower > 0) {
+            // Will comment for ITO testing. TODO: See if we can fix this.
             octavia.dbase.setDirection(leftMotor, rightMotor);
             octavia.dbase.setPower(leftMotor, rightMotor);
         }

@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode.boardmeeting;
 
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import java.util.HashMap;
@@ -16,7 +15,7 @@ public class DeviceType<C> {
         /* Hopefully avoiding null problems here by initializing the "devices"
         * and "cClass" variables before doing anything with them.
         */
-        this.devices = new HashMap<String, C>();
+        this.devices = new HashMap<>();
         this.cClass = cClass;
     }
 
