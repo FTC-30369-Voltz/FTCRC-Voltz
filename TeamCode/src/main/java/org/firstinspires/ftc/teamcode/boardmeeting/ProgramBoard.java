@@ -32,12 +32,12 @@ public class ProgramBoard {
     public IMU imu;
 
     public void init(HardwareMap map){
-        sensors = new DeviceType<DigitalChannel>(DigitalChannel.class);
-        motors = new DeviceType<DcMotor>(DcMotor.class);
-        servos = new DeviceType<Servo>(Servo.class);
-        analogSensors = new DeviceType<AnalogInput>(AnalogInput.class);
-        colorSensors = new DeviceType<ColorSensor>(ColorSensor.class);
-        distanceSensors = new DeviceType<DistanceSensor>(DistanceSensor.class);
+        sensors = new DeviceType<>(DigitalChannel.class);
+        motors = new DeviceType<>(DcMotor.class);
+        servos = new DeviceType<>(Servo.class);
+        analogSensors = new DeviceType<>(AnalogInput.class);
+        colorSensors = new DeviceType<>(ColorSensor.class);
+        distanceSensors = new DeviceType<>(DistanceSensor.class);
 
         imu = map.get(IMU.class, "imu");
     }
