@@ -32,7 +32,7 @@ public class AutoCommander {
         */
         BotCommand commandToRun = commandQueue
                 .stream().findFirst()
-                .orElse(new BotCommand());
+                .orElse(new BotCommand(this.board, 0));
         // Executes the command...
         commandToRun.execute(this.board);
         // ...and then removes said command from the queue.

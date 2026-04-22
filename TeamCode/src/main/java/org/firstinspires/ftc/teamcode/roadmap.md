@@ -18,9 +18,9 @@ Nothing yet...
 - [x] TeamCode/Tele: Set up a TeleOp OpMode
   - As far as I know, drive team requested that each control stick control a different motor. 
 - [ ] TeamCode/Auto: Set up an Autonomous OpMode
-- [ ] Autonomous/AutoCommander work
-    - [ ] Wire up AutoCommander to BoardMeeting
-        - [ ] Move and Turn commands
-        - [ ] Connect ITO class to IntakeArtifact and ShootArtifact commands
+- [x] Autonomous/AutoCommander work
+    - [x] Wire up AutoCommander to BoardMeeting
+        - [x] Move and Turn commands
+        - [x] Connect ITO class to IntakeArtifact and ShootArtifact commands
     - [ ] Figure out whether have each command run in "passthrough" or stop the rest of the Auto OpMode when run
         - [ ] Passthrough may come in handy for running commands in parallel (such as Move and IntakeArtifact)

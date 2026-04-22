@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode;
 /**
  * Octavia's configuration identifiers.
  * We usually use the DB_ prefix for the drive base and ITO_ for our ITO (Intake, Transfer, Outtake) system.
- * (TODO: Figure out the actual names of these motors)
  */
 public class Config {
     public String DB_TANK_LEFT = "tank_left";

@@ -22,7 +22,7 @@ public class ITOSystem {
         outtakeLeft = board.motors.addItem(map, cfg.ITO_OUTTAKE_L);
         outtakeRight = board.motors.addItem(map, cfg.ITO_OUTTAKE_R);
         intake.setDirection(DcMotorSimple.Direction.FORWARD);
-        transfer.setDirection(DcMotorSimple.Direction.FORWARD); // TODO: check with build/electrical team on which way the motor should actually spin once installed
+        transfer.setDirection(DcMotorSimple.Direction.FORWARD);
         outtakeLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         outtakeRight.setDirection(DcMotorSimple.Direction.REVERSE);
     }
@@ -35,7 +35,7 @@ public class ITOSystem {
     }
 
     public void intakeArtifact(float power){
-        intake.setPower(power); // TODO: wondering what's the biggest number we can put into here
+        intake.setPower(power);
     }
 
     public void transferArtifact(float power){
@@ -43,7 +43,6 @@ public class ITOSystem {
     }
 
     public void shootArtifact(){
-        // TODO: please see todo in intakeArtifact() on maximum motor power
         outtakeLeft.setPower(1);
         outtakeRight.setPower(1);
     }
