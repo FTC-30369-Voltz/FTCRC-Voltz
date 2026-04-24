@@ -2,8 +2,8 @@ package org.firstinspires.ftc.teamcode.autoCommander;
 
 import org.firstinspires.ftc.teamcode.boardmeeting.ProgramBoard;
 
-public class IntakeArtifactCommand extends BotCommand {
-    public IntakeArtifactCommand(ProgramBoard board, float sleepTime) {
+public class IntakeArtifactsCommand extends BotCommand {
+    public IntakeArtifactsCommand(ProgramBoard board, float sleepTime) {
         super(board, sleepTime);
     }
 

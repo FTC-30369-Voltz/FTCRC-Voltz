@@ -6,8 +6,8 @@ import org.firstinspires.ftc.teamcode.boardmeeting.ProgramBoard;
 
 public class BotCommand {
     public ProgramBoard board;
-    public float time;
-    public BotCommand(ProgramBoard board, float sleepTime) {
+    public double time;
+    public BotCommand(ProgramBoard board, double sleepTime) {
         this.board = board;
         this.time = sleepTime;
     }

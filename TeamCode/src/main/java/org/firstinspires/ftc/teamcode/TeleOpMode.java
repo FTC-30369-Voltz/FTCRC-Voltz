@@ -27,11 +27,12 @@ public class TeleOpMode extends OpMode {
         * on the ITO (save for the outtake motor, which would be controlled by
         * something else).
         */
-        float totalPower = (float) Math.sqrt(Math.abs(leftMotor+rightMotor));
+        float totalPower = (float) Math.sqrt(Math.abs((leftMotor+rightMotor)/2));
         if (totalPower > 0) {
             // Will comment for ITO testing. TODO: See if we can fix this.
-            octavia.dbase.setDirection(leftMotor, rightMotor);
             octavia.dbase.setPower(leftMotor, rightMotor);
+        } else {
+            octavia.dbase.setPower(0, 0);
         }
         float intake = gamepad1.right_trigger;
         float transfer = gamepad1.left_trigger;

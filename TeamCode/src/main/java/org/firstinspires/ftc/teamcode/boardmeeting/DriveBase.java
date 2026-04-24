@@ -13,6 +13,8 @@ public class DriveBase {
     public DriveBase(ProgramBoard board, Config cfg, HardwareMap map){
         leftMotor = board.motors.addItem(map, cfg.DB_TANK_LEFT);
         rightMotor = board.motors.addItem(map, cfg.DB_TANK_RIGHT);
+        setMode(DcMotor.RunMode.RUN_USING_ENCODER, DcMotor.RunMode.RUN_USING_ENCODER);
+        setDirection(DcMotorSimple.Direction.REVERSE, DcMotorSimple.Direction.REVERSE);
     }
 
     public void setMode(DcMotor.RunMode leftMode, DcMotor.RunMode rightMode){
@@ -21,20 +23,12 @@ public class DriveBase {
     }
 
     public void setPower(double leftPower, double rightPower){
-        leftMotor.setPower(Math.abs(leftPower));
-        rightMotor.setPower(Math.abs(rightPower));
+        leftMotor.setPower(leftPower);
+        rightMotor.setPower(rightPower);
     }
 
-    public void setDirection(double leftPower, double rightPower){
-        leftMotor.setDirection(calculateDirection(leftPower));
-        rightMotor.setDirection(calculateDirection(rightPower));
-    }
-
-    private DcMotorSimple.Direction calculateDirection(double speed) {
-        if(speed < 0) {
-            return DcMotorSimple.Direction.REVERSE;
-        } else {
-            return DcMotorSimple.Direction.FORWARD;
-        }
+    public void setDirection(DcMotorSimple.Direction leftDir, DcMotorSimple.Direction rightDir){
+        leftMotor.setDirection(leftDir);
+        rightMotor.setDirection(rightDir);
     }
 }

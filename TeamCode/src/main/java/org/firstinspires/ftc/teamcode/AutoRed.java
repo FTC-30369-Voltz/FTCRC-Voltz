@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.teamcode.autoCommander.AutoCommander;
 
 @Autonomous
-public class AutoOpMode extends LinearOpMode {
+public class AutoRed extends LinearOpMode {
     Octavia octavia = new Octavia();
     AutoCommander autoCommander;
     @Override
@@ -16,7 +16,7 @@ public class AutoOpMode extends LinearOpMode {
         telemetry.update();
         waitForStart();
         while (opModeIsActive()){
-            autoCommander.runAllQueuedCommands();
+            autoCommander.runOldestQueuedCommand();
             telemetry.update();
         }
     }

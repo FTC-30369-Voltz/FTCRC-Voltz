@@ -21,8 +21,8 @@ public class ITOSystem {
         transfer = board.motors.addItem(map,cfg.ITO_TRANSFER);
         outtakeLeft = board.motors.addItem(map, cfg.ITO_OUTTAKE_L);
         outtakeRight = board.motors.addItem(map, cfg.ITO_OUTTAKE_R);
-        intake.setDirection(DcMotorSimple.Direction.FORWARD);
-        transfer.setDirection(DcMotorSimple.Direction.FORWARD);
+        intake.setDirection(DcMotorSimple.Direction.REVERSE);
+        transfer.setDirection(DcMotorSimple.Direction.REVERSE);
         outtakeLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         outtakeRight.setDirection(DcMotorSimple.Direction.REVERSE);
     }
