@@ -10,18 +10,12 @@ public class AutoCommander {
     public AutoCommander(ProgramBoard board) {
         // Sets this class's "board" variable to the initializer's "board" input.
         this.board = board;
+        this.commandQueue.add(new BotCommand(this.board, 0));
     }
 
-    public BotCommand addCommand(BotCommand command){
+    public void addCommand(BotCommand command){
         // Adds a command to the commandQueue list.
-        return commandQueue.add(command) ? command : new BotCommand(this.board, 0);
-    }
-    public void addCommandAndRun(BotCommand command){
-        // Adds a command to the commandQueue list...
-        if (commandQueue.add(command)) {
-            // ...and then runs it.
-            runLatestCommand();
-        }
+        commandQueue.add(command);
     }
     public void runOldestQueuedCommand(){
         /* Queries the first command in the queue (or a new BotCommand)
