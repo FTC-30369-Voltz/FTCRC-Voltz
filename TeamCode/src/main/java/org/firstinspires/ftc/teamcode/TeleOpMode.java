@@ -10,9 +10,9 @@ public class TeleOpMode extends OpMode {
 
     @Override
     public void init() {
-        telemetry.addData("Current Status", "Initializing hardware...");
+        telemetry.addData("Octavia's Status", "Initializing hardware...");
         octavia.init(hardwareMap);
-        telemetry.addData("Current Status", "Hardware initialized!");
+        telemetry.addData("Octavia's Status", "Hardware initialized!");
     }
 
     @Override
@@ -36,7 +36,7 @@ public class TeleOpMode extends OpMode {
         if (totalPower > 0) {
             // Will comment for ITO testing. TODO: See if we can fix this.
             if (itoNeutral) {
-                telemetry.addData("Current Status", "Driving...");
+                telemetry.addData("Octavia's Status", "Driving...");
             }
             octavia.dbase.setPower(leftMotor, rightMotor);
         } else {
@@ -45,18 +45,18 @@ public class TeleOpMode extends OpMode {
 
         if (itoNeutral) {
             octavia.ito.itoIdle();
-            telemetry.addData("Current Status", "Active");
+            telemetry.addData("Octavia's Status", "Active");
         } else {
             if (intake > 0){
-                telemetry.addData("Current Status", "Collecting Artifacts...");
+                telemetry.addData("Octavia's Status", "Collecting Artifacts...");
                 octavia.ito.intakeArtifact(intake/2);
             }
             if (transfer > 0){
-                telemetry.addData("Current Status", "Priming Artifacts for launch...");
+                telemetry.addData("Octavia's Status", "Priming Artifacts for launch...");
                 octavia.ito.transferArtifact(transfer/2);
             }
             if (shoot){
-                telemetry.addData("Status", "Launching Artifacts...");
+                telemetry.addData("Octavia's Status", "Launching Artifacts...");
                 octavia.ito.shootArtifact();
             }
         }
