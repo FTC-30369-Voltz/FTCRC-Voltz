@@ -54,5 +54,11 @@ public class AutoBlue extends LinearOpMode {
         autoCommander.addCommand(new TurnCommand(octavia, 0.167F, TurnCommand.TurnDirection.LEFT));
         autoCommander.addCommand(new ShootArtifactCommand(octavia, 2));
         // 8 1/2 Seconds Remaining...
+        // Parking (1 2/3 Seconds)
+        autoCommander.addCommand(new TurnCommand(octavia, 0.167F, TurnCommand.TurnDirection.RIGHT));
+        autoCommander.addCommand(new MoveCommand(octavia, 0.5f));
+        autoCommander.addCommand(new TurnCommand(octavia, 0.5F, TurnCommand.TurnDirection.LEFT));
+        autoCommander.addCommand(new IntakeArtifactsCommand(octavia, 0.5f));
+        // Finished with 6 5/6 Seconds Remaining
     }
 }

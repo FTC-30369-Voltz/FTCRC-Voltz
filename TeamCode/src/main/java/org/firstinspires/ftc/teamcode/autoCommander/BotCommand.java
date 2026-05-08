@@ -14,7 +14,9 @@ public class BotCommand {
     public void execute(ProgramBoard board) {
         onInit(board);
         try {
-            Thread.sleep((int)this.time* 1000L);
+            if (this.time > 0) {
+                Thread.sleep((int)this.time* 1000L);
+            }
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
