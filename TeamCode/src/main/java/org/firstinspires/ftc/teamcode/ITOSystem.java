@@ -1,21 +1,21 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.boardmeeting.ProgramBoard;
 
 public class ITOSystem {
-    public DcMotor intake;
-    public DcMotor transfer;
+    public DcMotorEx intake;
+    public DcMotorEx transfer;
 
     /*
     * outtakeLeft and outtakeRight correspond to the perspective of
     * Artifacts exiting the transfer system.
     */
-    public DcMotor outtakeLeft;
-    public DcMotor outtakeRight;
+    public DcMotorEx outtakeLeft;
+    public DcMotorEx outtakeRight;
     public ITOSystem(ProgramBoard board, Config cfg, HardwareMap map){
         intake = board.motors.addItem(map, cfg.ITO_INTAKE);
         transfer = board.motors.addItem(map,cfg.ITO_TRANSFER);
@@ -30,8 +30,8 @@ public class ITOSystem {
     public void itoIdle() {
         intake.setPower(0);
         transfer.setPower(0);
-        outtakeLeft.setPower(0);
-        outtakeRight.setPower(0);
+        outtakeLeft.setVelocity(0);
+        outtakeRight.setVelocity(0);
     }
 
     public void intakeArtifact(float power){
@@ -43,7 +43,8 @@ public class ITOSystem {
     }
 
     public void shootArtifact(){
-        outtakeLeft.setPower(1);
-        outtakeRight.setPower(1);
+        double turns_per_second = (6000f/60)*(28); //(6000 RPM/60) * 28 ticks (don't know
+        outtakeLeft.setVelocity(turns_per_second);
+        outtakeRight.setVelocity(turns_per_second);
     }
 }

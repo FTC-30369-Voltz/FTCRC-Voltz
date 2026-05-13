@@ -4,7 +4,7 @@ package org.firstinspires.ftc.teamcode.boardmeeting;
 import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.AnalogInput;
 import com.qualcomm.robotcore.hardware.ColorSensor;
-import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -23,7 +23,7 @@ public class ProgramBoard {
     public DriveBase dbase;
 
     public DeviceType<DigitalChannel> sensors;
-    public DeviceType<DcMotor> motors;
+    public DeviceType<DcMotorEx> motors;
     public DeviceType<Servo> servos;
     public DeviceType<AnalogInput> analogSensors;
     public DeviceType<ColorSensor> colorSensors;
@@ -33,7 +33,7 @@ public class ProgramBoard {
 
     public void init(HardwareMap map){
         sensors = new DeviceType<>(DigitalChannel.class);
-        motors = new DeviceType<>(DcMotor.class);
+        motors = new DeviceType<>(DcMotorEx.class);
         servos = new DeviceType<>(Servo.class);
         analogSensors = new DeviceType<>(AnalogInput.class);
         colorSensors = new DeviceType<>(ColorSensor.class);
