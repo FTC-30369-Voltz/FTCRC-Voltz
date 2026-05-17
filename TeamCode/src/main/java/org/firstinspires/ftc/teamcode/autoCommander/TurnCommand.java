@@ -17,9 +17,9 @@ public class TurnCommand extends BotCommand {
     public void onInit(ProgramBoard board) {
         super.onInit(board);
         if (this.direction == TurnDirection.LEFT) {
-            board.dbase.setPower(1, -1);
+            board.dbase.setPower(1, -0.5);
         } else if (this.direction == TurnDirection.RIGHT) {
-            board.dbase.setPower(-1, 1);
+            board.dbase.setPower(-0.5, 1);
         }
     }
 

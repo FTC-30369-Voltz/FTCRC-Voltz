@@ -43,7 +43,7 @@ public class ITOSystem {
     }
 
     public void shootArtifact(){
-        double turns_per_second = (6000f/60)*(14); //(6000 RPM/60) * (28 ticks * 1:2 ratio (b/c_)
+        double turns_per_second = (6000f/60)*(14); //(6000 RPM/60) * (28 ticks * 1:2 ratio)
         outtakeLeft.setVelocity(turns_per_second);
         outtakeRight.setVelocity(turns_per_second);
     }
