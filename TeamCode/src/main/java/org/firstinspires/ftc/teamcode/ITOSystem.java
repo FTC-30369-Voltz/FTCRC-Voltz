@@ -3,9 +3,6 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-
-import org.firstinspires.ftc.teamcode.boardmeeting.ProgramBoard;
-
 public class ITOSystem {
     public DcMotorEx intake;
     public DcMotorEx transfer;
@@ -17,7 +14,7 @@ public class ITOSystem {
     public DcMotorEx outtakeLeft;
     public DcMotorEx outtakeRight;
 
-    public boolean turboMode = false;
+    public boolean turboMode;
     public ITOSystem(Octavia board, Config cfg, HardwareMap map){
         intake = board.motors.addItem(map, cfg.ITO_INTAKE);
         transfer = board.motors.addItem(map,cfg.ITO_TRANSFER);
