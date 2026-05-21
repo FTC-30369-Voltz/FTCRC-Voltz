@@ -11,4 +11,6 @@ public class Config {
     public String ITO_TRANSFER = "ito_transfer";
     public String ITO_OUTTAKE_L = "ito_outtake_l";
     public String ITO_OUTTAKE_R = "ito_outtake_r";
+
+    public boolean turboMode = false;
 }

@@ -16,7 +16,9 @@ public class ITOSystem {
     */
     public DcMotorEx outtakeLeft;
     public DcMotorEx outtakeRight;
-    public ITOSystem(ProgramBoard board, Config cfg, HardwareMap map){
+
+    public boolean turboMode = false;
+    public ITOSystem(Octavia board, Config cfg, HardwareMap map){
         intake = board.motors.addItem(map, cfg.ITO_INTAKE);
         transfer = board.motors.addItem(map,cfg.ITO_TRANSFER);
         outtakeLeft = board.motors.addItem(map, cfg.ITO_OUTTAKE_L);
@@ -25,13 +27,19 @@ public class ITOSystem {
         transfer.setDirection(DcMotorSimple.Direction.REVERSE);
         outtakeLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         outtakeRight.setDirection(DcMotorSimple.Direction.REVERSE);
+        turboMode = cfg.turboMode;
     }
 
     public void itoIdle() {
         intake.setPower(0);
         transfer.setPower(0);
-        outtakeLeft.setVelocity(0);
-        outtakeRight.setVelocity(0);
+        if (turboMode) {
+            outtakeLeft.setPower(0);
+            outtakeRight.setPower(0);
+        } else {
+            outtakeLeft.setVelocity(0);
+            outtakeRight.setVelocity(0);
+        }
     }
 
     public void intakeArtifact(float power){
@@ -42,9 +50,15 @@ public class ITOSystem {
         transfer.setPower(power);
     }
 
-    public void shootArtifact(){
-        double turns_per_second = (6000f/60)*(14); //(6000 RPM/60) * (28 ticks * 1:2 ratio)
-        outtakeLeft.setVelocity(turns_per_second);
-        outtakeRight.setVelocity(turns_per_second);
+    public void shootArtifact(boolean tm){
+        turboMode = tm;
+        if (turboMode) {
+            double turns_per_second = (6000f/60)*(21); //(6000 RPM/60) * (28 ticks * 1:2 ratio)
+            outtakeLeft.setVelocity(turns_per_second);
+            outtakeRight.setVelocity(turns_per_second);
+        } else {
+            outtakeLeft.setPower(1);
+            outtakeRight.setPower(1);
+        }
     }
 }

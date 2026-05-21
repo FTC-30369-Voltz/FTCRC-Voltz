@@ -14,7 +14,6 @@ public class DriveBase {
     public DriveBase(ProgramBoard board, Config cfg, HardwareMap map){
         leftMotor = board.motors.addItem(map, cfg.DB_TANK_LEFT);
         rightMotor = board.motors.addItem(map, cfg.DB_TANK_RIGHT);
-        setMode(DcMotor.RunMode.RUN_USING_ENCODER, DcMotor.RunMode.RUN_USING_ENCODER);
         setDirection(DcMotorSimple.Direction.REVERSE, DcMotorSimple.Direction.REVERSE);
     }
 

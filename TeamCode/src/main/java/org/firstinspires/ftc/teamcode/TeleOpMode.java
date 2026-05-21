@@ -8,6 +8,8 @@ public class TeleOpMode extends OpMode {
 
     Octavia octavia = new Octavia();
 
+    boolean turboPreviouslyToggled = false;
+
     @Override
     public void init() {
         telemetry.addData("Octavia's Status", "Initializing hardware...");
@@ -24,6 +26,7 @@ public class TeleOpMode extends OpMode {
         float intake = gamepad1.right_trigger;
         float transfer = gamepad1.left_trigger;
         boolean shoot = gamepad1.right_bumper;
+        boolean turboModeToggle = gamepad1.left_bumper;
         boolean itoNeutral = intake == 0 && transfer == 0 && !shoot;
         /*
         * Each control stick's X axis should control its corresponding motor on
@@ -47,18 +50,26 @@ public class TeleOpMode extends OpMode {
             octavia.ito.itoIdle();
             telemetry.addData("Octavia's Status", "Active");
         } else {
-            if (intake > 0){
+            if (intake > 0) {
                 telemetry.addData("Octavia's Status", "Collecting Artifacts...");
-                octavia.ito.intakeArtifact(intake/2);
+                octavia.ito.intakeArtifact(intake / 2);
             }
-            if (transfer > 0){
+            if (transfer > 0) {
                 telemetry.addData("Octavia's Status", "Priming Artifacts for launch...");
-                octavia.ito.transferArtifact(transfer/2);
+                octavia.ito.transferArtifact(transfer / 2);
             }
-            if (shoot){
+            if (shoot) {
                 telemetry.addData("Octavia's Status", "Launching Artifacts...");
-                octavia.ito.shootArtifact();
+                octavia.ito.shootArtifact(octavia.cfg.turboMode);
             }
+        }
+        if (turboModeToggle && !turboPreviouslyToggled) {
+            turboPreviouslyToggled = true;
+            telemetry.addData("Turbo Mode", "ON");
+            octavia.cfg.turboMode = !octavia.cfg.turboMode;
+        } else {
+            telemetry.addData("Turbo Mode", "Off");
+            turboPreviouslyToggled = false;
         }
     }
 }
